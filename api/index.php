@@ -6,23 +6,27 @@ require('src/bootstrap/app.php');
 
 use Src\Controller\VehicleController;
 
-$do = $_GET['do'];
+$route = $_REQUEST['route'];
 
-switch($do){
+if($route == 'add' && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    case 'add': 
-            $oVehicleController = new VehicleController();
-            $vehicle = $oVehicleController->add_vechicle();
-        break;
+    $oVehicleController = new VehicleController();
+    $vehicle = $oVehicleController->add_vechicle($_POST);
+    echo json_encode($vehicle);
 
-        case 'list':
-            $oVehicleController = new VehicleController();
-            $vehicle = $oVehicleController->list();
-            break;
+}else if($route == 'list' && $_SERVER['REQUEST_METHOD'] == 'GET'){
 
-        default:
-        
+    $oVehicleController = new VehicleController();
+    $vehicle = $oVehicleController->list();
+    echo json_encode($vehicle);
 
-        break;
-} 
+}else{
+
+    echo json_encode([
+        "success"  => "false",
+        "mesage" => 'No action to perform.'
+    ]);
+    
+}
+
 
