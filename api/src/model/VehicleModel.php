@@ -52,9 +52,17 @@ class VehicleModel {
                 VALUES (:name, :engine_displacement, :price, :location)";
         
         $oDBConnection = new DBConnection();
-        $result = $oDBConnection->getConnection()->prepare($sql)->execute($data);
+        $result = $oDBConnection->getConnection()->prepare($sql);
+        $execute = $result->execute($data);
         
-        return $result;
+        $data = [];
+        
+        if($result){
+            $id = $oDBConnection->getConnection()->lastInsertId();
+            $data = compact("id","name", "engine_displacement","price", "location");
+        }
+
+        return compact("result", "data");
     }
 
 }

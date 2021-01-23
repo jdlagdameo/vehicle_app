@@ -36,12 +36,11 @@ class VehicleController extends Controller{
         $location = $this->sanitize($request['location']);
         
         $oVehicleModel = new VehicleModel();
-        $result = $oVehicleModel->insert_vehicle($name, $engine_displacement, $price, $location);
+        $add_vehicle = $oVehicleModel->insert_vehicle($name, $engine_displacement, $price, $location);
         
-        $success = $result ? true : false;
-        $message = $success? "Vehicle succssfully registed" : "Errorr occured while trying to register vehicle. Please try again";
-        $data = $oVehicleModel->list_vehicle();
-
+        $success = $add_vehicle['result'] ? true : false;
+        $message = $success ? "Vehicle succssfully registed" : "Errorr occured while trying to register vehicle. Please try again";
+        $data = $success ? $add_vehicle['data'] : [];
         return compact("success", "message", "data");
 
     }
