@@ -45,6 +45,8 @@ To run the vue production build, run
 npm run build
 ```
 
+After the project build, access the http://localhost/vehicle_app/
+
 ### Requirements
 
 The following libraries and frameworks used in the project list down below:
