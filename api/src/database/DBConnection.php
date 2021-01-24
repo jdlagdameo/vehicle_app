@@ -1,4 +1,11 @@
 <?php
+/**
+ * Database Connection Class 
+ * 
+ * @author: John Dave Lagdameo 
+ * @since: 01/22/2020
+ * 
+ */
 namespace Src\Database;
 use PDO;
 

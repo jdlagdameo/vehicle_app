@@ -1,6 +1,10 @@
 <?php 
 /**
- * Author: John dave Lagdameo
+ * Main Routing / API file 
+ * 
+ * @author: John dave Lagdameo
+ * @since: 01/22/2020 
+ * 
  */
 require('src/bootstrap/app.php');
 

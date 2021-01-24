@@ -1,13 +1,33 @@
 <?php 
+/**
+ * Main Controller 
+ * 
+ * @author: John Dave Lagdameo
+ * @since: 01/23/2020
+ * 
+ */
 namespace Src\Controller;
 
 class Controller{
 
 
+    /**
+     * Sanitize String 
+     * 
+     * @param string $str
+     */
     public function sanitize($str){
         return filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
     }
 
+    /**
+     * Convert Engine Displacment by unit measure 
+     * 
+     * @param string unit_measure
+     * @param float engine_displacement
+     * 
+     * @return array
+     */
     public function convert_engine_displacement($unit_measure, $engine_displacement){
         switch($unit_measure){
             // Liters

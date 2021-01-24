@@ -77,7 +77,6 @@ class VehicleController extends Controller{
             $validation_errors['name'] = 'Name must be less than or equal to 120 chars.';
         }
 
-
         // Engine Displacement
         if(!isset($request['engine_displacement']) || $request['engine_displacement'] == ''){
             $validation_errors['engine_displacement'] = 'Engine Displacement is required.';
@@ -110,11 +109,7 @@ class VehicleController extends Controller{
         if(!isset($request['engine_power']) || $request['engine_power'] == ''){
             $validation_errors['engine_power'] = 'Engine Power is required.';
         }
-        // else if(strlen(trim($request['location'])) > 100){
-        //     $validation_errors['engine_power'] = 'Location must be less than or equal to 100 chars.';
-        // }
      
-
         $success = count($validation_errors) == 0;
         
         return compact("success", "message", "validation_errors");
