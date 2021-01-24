@@ -16,7 +16,12 @@ use PDO;
 class VehicleModel {
 
     protected $table_name = 'vehicles';
-    
+
+    private $dbConnection;
+
+    public function __construct(){
+        $this->dbConnection = new DBConnection();
+    }
     /**
      * List all vehicles
      * 
@@ -24,12 +29,11 @@ class VehicleModel {
      */
     public function list_vehicle(){
 
-        $oDBConnection = new DBConnection();
         $sql = "SELECT * FROM `$this->table_name`";
-        $result = $oDBConnection->getConnection()->prepare($sql);
+        $result = $this->dbConnection->getConnection()->prepare($sql);
         $result->execute();
         $data = $result->fetchAll(PDO::FETCH_ASSOC);
-        
+    
         return $data;
   
     }
@@ -37,32 +41,36 @@ class VehicleModel {
     /**
      * Create New vehicle
      * 
-     * @params string $name 
-     * @params string $engine_displacement
-     * @params string $price
-     * @params string $location 
+     * @params array $data
      * 
-     * @return 
+     * @return array
      */
-    public function insert_vehicle($name, $engine_displacement, $price, $location){
-        
-        $data = compact("name", "engine_displacement", "price", "location");
-
-        $sql = "INSERT INTO vehicles(name, engine_displacement, price, location) 
-                VALUES (:name, :engine_displacement, :price, :location)";
+    public function insert_vehicle($data){
+    
+        $sql = "INSERT INTO vehicles(
+                    name, price, location, engine_power, 
+                    engine_displacement_cubic_inches, 
+                    engine_displacement_cubic_centimeters, 
+                    engine_displacement_liters
+                ) 
+                VALUES ( 
+                    :name, :price, :location, :engine_power, 
+                    :engine_displacement_cubic_inches, 
+                    :engine_displacement_cubic_centimeters, 
+                    :engine_displacement_liters
+        )";
         
         $oDBConnection = new DBConnection();
         $result = $oDBConnection->getConnection()->prepare($sql);
         $execute = $result->execute($data);
-        
-        $data = [];
-        
+                
         if($result){
             $id = $oDBConnection->getConnection()->lastInsertId();
-            $data = compact("id","name", "engine_displacement","price", "location");
+            $data['id'] = $id;
         }
 
         return compact("result", "data");
+
     }
 
 }
