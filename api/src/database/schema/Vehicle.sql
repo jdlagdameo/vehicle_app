@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2021 at 11:48 AM
+-- Generation Time: Jan 24, 2021 at 12:50 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -41,6 +41,14 @@ CREATE TABLE `vehicles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `vehicles`
+--
+
+INSERT INTO `vehicles` (`id`, `name`, `engine_displacement`, `price`, `location`, `created_at`, `engine_displacement_cubic_centimeters`, `engine_displacement_cubic_inches`, `engine_displacement_liters`, `engine_power`) VALUES
+(1, 'Toyota Wigo', 0, 568000, 'Makati City', '2021-01-24 11:36:14', 998, 60.902, 0.998, 65),
+(2, 'Nissan Navara', 0, 924000, 'Quezon City', '2021-01-24 11:35:07', 2298, 140.233, 2.298, 3750);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -58,7 +66,7 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
