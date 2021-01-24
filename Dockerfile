@@ -29,7 +29,7 @@ RUN sed -i -e "s/html/html\/public/g" /etc/apache2/sites-enabled/000-default.con
 #     && composer global require hirak/prestissimo --quiet --no-plugins --no-scripts --no-interaction --no-progress --ansi --no-suggest
 
 # FROM packager_installed as dependency_installed
-COPY src/package* $APP_HOME/
+# COPY src/package* $APP_HOME/
 
 RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
