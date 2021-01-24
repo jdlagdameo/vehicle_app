@@ -13,6 +13,10 @@ DB_PASSWORD=
 
 After the setup of the config, create database and export the api\src\database\schema\Vehicle.sql to the database using phpmyadmin.
 
+### Project Setup
+
+Pull the project in server. (Ex: for xampp pull the project in htdocs)
+
 ### API Setup
 
 Go to terminal and access the /api folder. Install the library dependencies via
