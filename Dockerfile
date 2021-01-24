@@ -23,10 +23,10 @@ RUN a2enmod headers
 RUN sed -i -e "s/html/html\/public/g" /etc/apache2/sites-enabled/000-default.conf
 
 FROM set_as_web_app as packager_installed
-RUN curl -sS https://getcomposer.org/installer | php -- \
-    --install-dir=/usr/local/bin --filename=composer \
-    && composer self-update \
-    && composer global require hirak/prestissimo --quiet --no-plugins --no-scripts --no-interaction --no-progress --ansi --no-suggest
+# RUN curl -sS https://getcomposer.org/installer | php -- \
+#     --install-dir=/usr/local/bin --filename=composer \
+#     && composer self-update \
+#     && composer global require hirak/prestissimo --quiet --no-plugins --no-scripts --no-interaction --no-progress --ansi --no-suggest
 
 FROM packager_installed as dependency_installed
 COPY src/package* $APP_HOME/
