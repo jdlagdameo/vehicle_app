@@ -44,3 +44,9 @@ RUN a2enconf servername
 
 # FROM dependency_installed as laravel_web_app
 # WORKDIR $APP_HOME
+
+COPY . /var/www/html
+
+WORKDIR /var/www/html
+
+EXPOSE 80
