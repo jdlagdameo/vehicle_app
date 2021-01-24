@@ -14,6 +14,10 @@ WORKDIR /var/www/html
 EXPOSE 80
 FROM php:7.4.8-apache as base_lamp_image
 
+RUN apt-get install -y \
+        libzip-dev \
+        zip 
+        
 RUN apt-get -y clean && \
     apt-get -y update && \
     apt-get -y install git curl zlib1g-dev libcurl4-gnutls-dev && \
