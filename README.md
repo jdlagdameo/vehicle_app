@@ -11,7 +11,7 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-After the setup of the config, create database and export the api\src\database\schema\Vehicle.sql to the database using phpmyadmin.
+After the setup of the config, create database and export the api\src\database\schema\Vehicle.sql in MySQL database using phpmyadmin.
 
 ### Project Setup
 
