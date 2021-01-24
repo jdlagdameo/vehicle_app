@@ -2,11 +2,11 @@
     <b-list-group-item>
         Name: {{ vehicle.name }} <br>
         Engine Displacement: <br>{{ `
-            ${vehicle.engine_displacement_cubic_inches} L / 
-            ${vehicle.engine_displacement_cubic_centimeters} cm3 / 
+            ${vehicle.engine_displacement_liters} L / 
+            ${vehicle.engine_displacement_cubic_centimeters} CC / 
             ${vehicle.engine_displacement_cubic_inches} in3`  
         }} <br>
-        Price: {{ vehicle.price }} <br>
+        Price: P {{ parseFloat(vehicle.price).toLocaleString('en') }} <br>
         Engine Power: {{ vehicle.engine_power }} hp<br>
         Location: {{ vehicle.location }} <br>
     </b-list-group-item>

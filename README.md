@@ -15,7 +15,7 @@ After the setup of the config, create database and export the api\src\database\s
 
 ### Project Setup
 
-Pull the project in server. (Ex: for xampp pull the project in htdocs)
+Pull the project in server. (Ex: clone the project in xampp/htdocs)
 
 ### API Setup
 

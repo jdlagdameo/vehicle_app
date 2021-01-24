@@ -98,7 +98,7 @@
                 unit_measure: [
                     { text: 'Select Unit Measure', value: null }, 
                     { text: 'L (Liters)', value: 'l'}, 
-                    { text: 'cm3 (Cubic Centimetres)', value: 'cm3'}, 
+                    { text: 'CC / cm3 (Cubic Centimetres)', value: 'cm3'}, 
                     { text: 'in3 (Cubic Inches)', value: 'in3'}
                 ],
             }
