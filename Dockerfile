@@ -31,16 +31,16 @@ RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
 RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 6M/g" /usr/local/etc/php/php.ini
 
-COPY src/composer* $APP_HOME/
-RUN cd $APP_HOME \
-    && php -d memory_limit=-1 `which composer` install --verbose \
-    --quiet --no-autoloader --no-dev --no-interaction --no-progress --ansi \
-    --no-suggest --prefer-dist --no-scripts \
-    && rm -rf /root/.composer
+# COPY src/composer* $APP_HOME/
+# RUN cd $APP_HOME \
+#     && php -d memory_limit=-1 `which composer` install --verbose \
+#     --quiet --no-autoloader --no-dev --no-interaction --no-progress --ansi \
+#     --no-suggest --prefer-dist --no-scripts \
+#     && rm -rf /root/.composer
 
 RUN ls -la
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
 
-FROM dependency_installed as laravel_web_app
-WORKDIR $APP_HOME
+# FROM dependency_installed as laravel_web_app
+# WORKDIR $APP_HOME
