@@ -39,7 +39,7 @@ FROM set_as_web_app as packager_installed
 RUN curl -sS https://getcomposer.org/installer | php -- \
     --install-dir=/usr/local/bin --filename=composer \
     && composer self-update \
-    && composer global require hirak/prestissimo --quiet --no-plugins --no-scripts --no-interaction --no-progress --ansi --no-suggest
+#&& composer global require hirak/prestissimo --quiet --no-plugins --no-scripts --no-interaction --no-progress --ansi --no-suggest
 
 FROM packager_installed as dependency_installed
 
