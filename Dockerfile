@@ -35,10 +35,10 @@ RUN echo 'Header set X-XSS-Protection "1; mode=block"' >> /etc/apache2/conf-enab
 RUN echo 'Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"' >> /etc/apache2/conf-enabled/security.conf
 RUN echo 'Header set Content-Security-Policy "frame-ancestors DENY"' >> /etc/apache2/conf-enabled/security.conf
 
-FROM set_as_web_app as packager_installed
-RUN curl -sS https://getcomposer.org/installer | php -- \
-    --install-dir=/usr/local/bin --filename=composer \
-    && composer self-update \
+# FROM set_as_web_app as packager_installed
+# RUN curl -sS https://getcomposer.org/installer | php -- \
+#     --install-dir=/usr/local/bin --filename=composer \
+    # && composer self-update \
 #&& composer global require hirak/prestissimo --quiet --no-plugins --no-scripts --no-interaction --no-progress --ansi --no-suggest
 
 FROM packager_installed as dependency_installed
