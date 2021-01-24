@@ -36,7 +36,7 @@ npm install
 Access frontend\vue.config.js and change the project url.
 
 ```sh
-publicPath: 'http:<project_url>/frontend/dist/',
+publicPath: 'http:<enter project_url>/frontend/dist/'
 ```
 
 To run the vue production build, run
